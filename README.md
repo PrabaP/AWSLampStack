@@ -1,2 +1,2 @@
 # AWSLampStack
-Create a EC2 Lamp Stact Instance
+Create a EC2 Lamp Stack Instance
