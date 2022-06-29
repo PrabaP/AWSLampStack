@@ -33,7 +33,7 @@ Resources:
           - ''
           - - 'arn:'
             - !Ref 'AWS::Partition'
-            - ':iam::arn:aws:iam::346262052550:policy/service-role/AWSCodePipelineServiceRole-us-east-2-MyFirstPipeline'
+            - ':iam::346262052550:policy/InstanceDeployServiceRole'
       Path: /
       Policies:
         - PolicyName: putParameter
