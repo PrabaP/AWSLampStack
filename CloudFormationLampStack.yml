@@ -64,13 +64,13 @@ Resources:
       InstanceTenancy: default
       Tags:
         - Key: Name
-          Value: Automation-LAMPStack-AL2
+          Value: Kion-LAMPStack-AL2
   InternetGateway:
     Type: 'AWS::EC2::InternetGateway'
     Properties:
       Tags:
         - Key: Name
-          Value: Automation-LAMPStack-AL2
+          Value: Kion-LAMPStack-AL2
   VPCGatewayAttachment:
     Type: 'AWS::EC2::VPCGatewayAttachment'
     Properties:
@@ -87,14 +87,14 @@ Resources:
       VpcId: !Ref VPC
       Tags:
         - Key: Name
-          Value: Automation-LAMPStack-AL2
+          Value: Kion-LAMPStack-AL2
   RouteTablePublic:
     Type: 'AWS::EC2::RouteTable'
     Properties:
       VpcId: !Ref VPC
       Tags:
         - Key: Name
-          Value: Automation-LAMPStack-AL2
+          Value: Kion-LAMPStack-AL2
   RouteTableAssociationPublic:
     Type: 'AWS::EC2::SubnetRouteTableAssociation'
     Properties:
@@ -113,7 +113,7 @@ Resources:
       VpcId: !Ref VPC
       Tags:
         - Key: Name
-          Value: Automation-LAMPStack-AL2
+          Value: Kion-LAMPStack-AL2
   SubnetNetworkAclAssociationPublic:
     Type: 'AWS::EC2::SubnetNetworkAclAssociation'
     Properties:
@@ -141,7 +141,7 @@ Resources:
     Type: 'AWS::EC2::SecurityGroup'
     Properties:
       GroupDescription: Security Group created for AWS-InstallLAMPWebServer
-      GroupName: Automation-LAMPStack-AL2-HTTP
+      GroupName: Kion-LAMPStack-AL2-HTTP
       SecurityGroupIngress:
         - IpProtocol: tcp
           FromPort: 80
@@ -154,7 +154,7 @@ Resources:
           CidrIp: 0.0.0.0/0
       Tags:
         - Key: Name
-          Value: Automation-LAMPStack-AL2
+          Value: Kion-LAMPStack-AL2
       VpcId: !Ref VPC
   LinuxEc2Instance:
     Type: 'AWS::EC2::Instance'
@@ -170,7 +170,7 @@ Resources:
       IamInstanceProfile: !Ref ManagedInstanceProfile
       Tags:
         - Key: Name
-          Value: Automation-LAMPStack-AL2
+          Value: Kion-LAMPStack-AL2
 Outputs:
   TemplateID:
     Description: Template id.
