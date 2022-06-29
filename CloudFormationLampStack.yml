@@ -33,7 +33,7 @@ Resources:
           - ''
           - - 'arn:'
             - !Ref 'AWS::Partition'
-            - ':iam::aws:policy/AmazonSSMManagedInstanceCore'
+            - ':iam::arn:aws:iam::346262052550:policy/service-role/AWSCodePipelineServiceRole-us-east-2-MyFirstPipeline'
       Path: /
       Policies:
         - PolicyName: putParameter
