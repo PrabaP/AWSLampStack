@@ -358,23 +358,34 @@
 		},
 		"LinuxEc2Instance": {
 			"Type": "AWS::EC2::Instance",
-			"Metadata": {
-				"AWS::CloudFormation::Init": {
-					"services": {
-						"sysvint": {
-							"codedeploy-agent": {
-								"enabled": "true",
-								"ensureRunning": "true"
-							}
-						}
-					}
-				}
-			},
 			"Properties": {
 				"InstanceType": "t2.small",
 				"ImageId": {
 					"Ref": "LatestAmazonLinuxAmiId"
 				},
+				"NetworkInterfaces": [
+					{
+						"AssociatePublicIpAddress": "true",
+						"DeviceIndex": "0",
+						"GroupSet": [
+							{
+								"Ref": "InstanceSecurityGroup"
+							}
+						],
+						"SubnetId": {
+							"Ref": "SubnetPublic"
+						}
+					}
+				],
+				"IamInstanceProfile": {
+					"Ref": "ManagedInstanceProfile"
+				},
+				"Tags": [
+					{
+						"Key": "Name",
+						"Value": "Kion-IaC-LAMPStack-AL2"
+					}
+				],
 				"UserData": {
 					"Fn::Base64": {
 						"Fn::Join": [
@@ -415,30 +426,7 @@
 							]
 						]
 					}
-				},
-				"NetworkInterfaces": [
-					{
-						"AssociatePublicIpAddress": "true",
-						"DeviceIndex": "0",
-						"GroupSet": [
-							{
-								"Ref": "InstanceSecurityGroup"
-							}
-						],
-						"SubnetId": {
-							"Ref": "SubnetPublic"
-						}
-					}
-				],
-				"IamInstanceProfile": {
-					"Ref": "ManagedInstanceProfile"
-				},
-				"Tags": [
-					{
-						"Key": "Name",
-						"Value": "Kion-IaC-LAMPStack-AL2"
-					}
-				]
+				}
 			}
 		}
 	},
