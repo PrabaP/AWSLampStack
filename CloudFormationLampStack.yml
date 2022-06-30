@@ -33,7 +33,7 @@ Resources:
           - ''
           - - 'arn:'
             - !Ref 'AWS::Partition'
-            - ':aws:iam::346262052550:user/prabha'
+            - ':iam::346262052550:user/prabha'
       Path: /
       Policies:
         - PolicyName: putParameter
