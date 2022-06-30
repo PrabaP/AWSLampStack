@@ -33,7 +33,7 @@ Resources:
           - ''
           - - 'arn:'
             - !Ref 'AWS::Partition'
-            - ':iam::346262052550:user/prabha'
+            - ':iam::aws:policy/AmazonSSMManagedInstanceCore'
       Path: /
       Policies:
         - PolicyName: putParameter
