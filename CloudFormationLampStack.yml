@@ -43,11 +43,11 @@ Resources:
               - Effect: Allow
                 Action:
                   - 'ssm:PutParameter'
-		    - PolicyName: iamcodedeploypolicy
+        - PolicyName: iamcodedeploypolicy
           PolicyDocument:
-			      Version: '2012-10-17'
-			      Statement:
-			        - Effect: Allow
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
                 Action:
                   - 'autoscaling:*'
                   - 'codedeploy:*'
@@ -83,7 +83,7 @@ Resources:
       Path: /
       Roles:
         - !Ref ManagedInstanceRole
-      InstanceProfileName: ManagedInstanceProfileKIONLAMPAL2
+      InstanceProfileName: MIPKIONLAMPAL2
   VPC:
     Type: 'AWS::EC2::VPC'
     Properties:
