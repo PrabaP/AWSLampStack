@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: 2010-09-09
 Description: >-
-  AWS CloudFormation template for Tutorial - Install a LAMP Web Server on Amazon
+  AWS CloudFormation template - Install a LAMP Web Server on Amazon
   Linux 2
 Parameters:
   LatestAmazonLinuxAmiId:
