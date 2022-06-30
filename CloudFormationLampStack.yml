@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: 2010-09-09
 Description: >-
-  AWS CloudFormation template - Install a LAMP Web Server on Amazon
+  AWS CloudFormation template for Kion IaC Assignment - Install a LAMP Web Server on Amazon
   Linux 2
 Parameters:
   LatestAmazonLinuxAmiId:
@@ -43,18 +43,47 @@ Resources:
               - Effect: Allow
                 Action:
                   - 'ssm:PutParameter'
+		    - PolicyName: iamcodedeploypolicy
+          PolicyDocument:
+			      Version: '2012-10-17'
+			      Statement:
+			        - Effect: Allow
+                Action:
+                  - 'autoscaling:*'
+                  - 'codedeploy:*'
+                  - 'ec2:*'
+                  - 'lambda:*'
+                  - 'ecs:*'
+                  - 'elasticloadbalancing:*'
+                  - 'iam:AddRoleToInstanceProfile'
+                  - 'iam:AttachRolePolicy'
+                  - 'iam:CreateInstanceProfile'
+                  - 'iam:CreateRole'
+                  - 'iam:DeleteInstanceProfile'
+                  - 'iam:DeleteRole'
+                  - 'iam:DeleteRolePolicy'
+                  - 'iam:GetInstanceProfile'
+                  - 'iam:GetRole'
+                  - 'iam:GetRolePolicy'
+                  - 'iam:ListInstanceProfilesForRole'
+                  - 'iam:ListRolePolicies'
+                  - 'iam:ListRoles'
+                  - 'iam:PutRolePolicy'
+                  - 'iam:RemoveRoleFromInstanceProfile'
+                  - 's3:*'
+                  - 'ssm:*'
                 Resource: !Join 
-                  - ''
-                  - - 'arn:'
-                    - !Ref 'AWS::Partition'
-                    - ':ssm:*:*:parameter/Tutorials/Passwords/AL2/*'
+                          - ''
+                          - - 'arn:'
+                            - !Ref 'AWS::Partition'
+                            - ':*:parameter/Tutorials/Passwords/AL2/*'
   ManagedInstanceProfile:
     Type: 'AWS::IAM::InstanceProfile'
     Properties:
       Path: /
       Roles:
         - !Ref ManagedInstanceRole
-      InstanceProfileName: ManagedInstanceProfileKION
+      InstanceProfileName: ManagedInstanceProfileKIONLAMPAL2
   VPC:
     Type: 'AWS::EC2::VPC'
     Properties:
