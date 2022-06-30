@@ -360,18 +360,6 @@
 			"Type": "AWS::EC2::Instance",
 			"Properties": {
 				"InstanceType": "t2.small",
-				"Metadata": {
-					"AWS::CloudFormation::Init": {
-						"services": {
-							"sysvint": {
-								"codedeploy-agent": {
-									"enabled": "true",
-									"ensureRunning": "true"
-								}
-							}
-						}
-					}
-				},
 				"ImageId": {
 					"Ref": "LatestAmazonLinuxAmiId"
 				},
