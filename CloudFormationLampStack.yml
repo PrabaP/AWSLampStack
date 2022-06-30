@@ -54,7 +54,7 @@ Resources:
       Path: /
       Roles:
         - !Ref ManagedInstanceRole
-      InstanceProfileName: ManagedInstanceProfileLAMPAL2
+      InstanceProfileName: ManagedInstanceProfileKIONLAMPAL2
   VPC:
     Type: 'AWS::EC2::VPC'
     Properties:
